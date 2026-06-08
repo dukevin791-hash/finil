@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AI抓重點機</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+}
+
+textarea{
+    width: 500px;
+    height: 150px;
+}
+
+button{
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+#result{
+    margin-top: 20px;
+    font-size: 20px;
+    color: blue;
+}
+</style>
+
+</head>
+<body>
+
+<h1>AI文章抓重點機</h1>
+
+<textarea id="article"
+placeholder="請輸入文章，句子請用。分隔"></textarea>
+
+<br>
+
+<button onclick="analyze()">
+開始分析
+</button>
+
+<div id="result"></div>
+
+<script>
+function analyze(){
+
+    let text =
+    document.getElementById("article").value;
+
+    let sentences =
+    text.split("。");
+
+    let longest = "";
+
+    for(let sentence of sentences){
+
+        if(sentence.length > longest.length){
+            longest = sentence;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+    "文章重點：<br>" + longest + "。";
+}
+</script>
+
+</body>
+</html>
