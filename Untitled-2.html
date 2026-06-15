@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AI文字整理機</title>
+
+<style>
+body{
+    font-family: Arial;
+    width: 80%;
+    margin: auto;
+}
+
+textarea{
+    width: 100%;
+    height: 200px;
+}
+
+button{
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+#result{
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>AI文字整理機</h1>
+
+<textarea id="text"></textarea>
+
+<br>
+
+<button onclick="summary()">
+整理重點
+</button>
+
+<div id="result"></div>
+
+<script>
+
+function summary(){
+
+    let text =
+    document.getElementById("text").value;
+
+    let sentences =
+    text.split("。");
+
+    let result = "<h3>整理後重點：</h3>";
+
+    for(let s of sentences){
+
+        s = s.trim();
+
+        if(s.length >= 10){
+            result += "• " + s + "<br>";
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+    result;
+}
+
+</script>
+
+</body>
+</html>
